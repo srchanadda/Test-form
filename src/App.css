@@ -1,0 +1,14 @@
+
+.App-header {
+  background-color: #eff4ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  color: black;
+}
+
+@font-face {
+  font-family: 'Prompt-Regular';
+  src: url('./asset/fonts/Prompt-Regular.ttf') format('truetype');
+}
