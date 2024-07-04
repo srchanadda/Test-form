@@ -189,7 +189,6 @@ export default function Form({ navigation }) {
         <>
             <div>
                 <div className='Form-styles'>
-                    <div>
                         <div className='Form-rows' style={{ marginTop: 20 }}>
                             <div style={{ display: "flex", flexDirection: 'column' }}>
                                 <div style={{ display: 'flex', flexDirection: "row" }}>
@@ -197,23 +196,25 @@ export default function Form({ navigation }) {
                                     <div style={{ color: 'red', marginLeft: 5 }}> *</div>
                                 </div>
                                 <input
-                                    style={{ width: 280, height: 50, borderRadius: 8, borderColor: '#A9A9A9', borderStyle: "solid", borderWidth: 1, paddingLeft: 20 }}
+                                    className='form-layout'
                                     value={isEditON ? isNameEdit : isName}
                                     onChange={(E) => (isEditON == false) ? setName(E.target.value) : setNameEdit(E.target.value)}
                                 />
-                                {(isNameError == '') ? null : <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>{isNameError}</div>}
+                                {(isNameError == '') ? <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>⠀</div> 
+                                : <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>{isNameError}</div>}
                             </div>
-                            <div style={{ display: "flex", flexDirection: 'column', marginLeft: 20, }}>
+                            <div style={{ display: "flex", flexDirection: 'column', marginLeft: 50, }}>
                                 <div style={{ display: 'flex', flexDirection: "row" }}>
                                     <div>Last name </div>
                                     <div style={{ color: 'red', marginLeft: 5 }}> *</div>
                                 </div>
                                 <input
-                                    style={{ width: 280, height: 50, borderRadius: 8, borderColor: '#A9A9A9', borderStyle: "solid", borderWidth: 1, backgroundColor: 'white', paddingLeft: 20 }}
+                                    className='form-layout'
                                     value={isEditON ? isSurNameEdit : isSurName}
                                     onChange={(E) => (isEditON == false) ? setSurName(E.target.value) : setSurNameEdit(E.target.value)}
                                 />
-                                {(isSurNameError == '') ? null : <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>{isSurNameError}</div>}
+                                {(isSurNameError == '') ? <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>⠀</div> 
+                                : <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>{isSurNameError}</div>}
                             </div>
                         </div>
                         <div className='Form-rows' style={{ marginTop: 20 }}>
@@ -232,26 +233,18 @@ export default function Form({ navigation }) {
                                         <option value="F">Female</option>
                                         <option value="U">Unknown</option>
                                     </select>
-                                    <div style={{
-                                        position: 'absolute',
-                                        top: '50%',
-                                        right: 20,
-                                        transform: 'translateY(-50%)',
-                                        pointerEvents: 'none',
-                                        borderLeft: '5px solid transparent',
-                                        borderRight: '5px solid transparent',
-                                        borderTop: '5px solid black'
-                                    }}></div>
+                                    <div className='Dropdown-transition'></div>
                                 </div>
-                                {(isGenderError == '') ? null : <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>{isGenderError}</div>}
+                                {(isGenderError == '') ? <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>⠀</div>
+                                : <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>{isGenderError}</div>}
                             </div>
-                            <div style={{ display: "flex", flexDirection: 'column', marginLeft: 20, }}>
+                            <div style={{ display: "flex", flexDirection: 'column', marginLeft: 50, }}>
                                 <div style={{ display: 'flex', flexDirection: "row" }}>
                                     <div>Score </div>
                                     <div style={{ color: 'red', marginLeft: 5 }}> *</div>
                                 </div>
                                 <input
-                                    style={{ width: 280, height: 50, borderRadius: 8, borderColor: '#A9A9A9', borderStyle: "solid", borderWidth: 1, backgroundColor: 'white', paddingLeft: 20 }}
+                                    className='form-layout'
                                     value={isEditON ? isScoreEdit : isScore}
                                     onChange={(E) => {
                                         const numericValue = E.target.value.replace(/[^0-9.-]/g, '');
@@ -259,22 +252,22 @@ export default function Form({ navigation }) {
                                     }
                                     }
                                 />
-                                {(isScoreError == '') ? null : <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>{isScoreError}</div>}
+                                {(isScoreError == '') ? <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>⠀</div> 
+                                : <div style={{ color: 'red', justifySelf: 'left', display: 'flex' }}>{isScoreError}</div>}
                             </div>
                         </div>
-                    </div>
                     <div style={{ flexDirection: 'row', display: 'flex' }}>
 
                         {(isEditON == false)
                             ?
-                            <div style={{ backgroundColor: '#0070bf', borderWidth: 1, marginTop: 40, width: 153, height: 50, borderRadius: 10, alignItems: "center", justifyContent: "center", display: 'flex', cursor: 'pointer', borderColor: '#fafafa' }} onClick={() => AddData()}>
+                            <div className='button-color' onClick={() => AddData()}>
                                 <div style={{ fontSize: 20, color: 'white' }} >Add</div>
                             </div>
-                            : <div style={{ backgroundColor: '#0070bf', borderWidth: 1, marginTop: 40, width: 153, height: 50, borderRadius: 10, alignItems: "center", justifyContent: "center", display: 'flex', cursor: 'pointer', borderColor: '#fafafa' }} onClick={() => On_Edit()}>
+                            : <div className='button-color' onClick={() => On_Edit()}>
                                 <div style={{ fontSize: 20, color: 'white' }} >Edit</div>
                             </div>
                         }
-                        <div style={{ backgroundColor: 'white', borderWidth: 1, marginTop: 40, width: 153, height: 50, borderRadius: 10, alignItems: "center", justifyContent: "center", display: 'flex', marginLeft: 20, cursor: 'pointer', borderColor: '#fafafa' }} onClick={() => ResetValue()}>
+                        <div className='button-cancel' onClick={() => ResetValue()}>
                             <div style={{ fontSize: 20, }}>Cancel</div>
                         </div>
                     </div>
@@ -284,8 +277,8 @@ export default function Form({ navigation }) {
                                 <tr style={{ backgroundColor: '#8ca8d8', color: 'white' }}>
                                     <td style={{ border: '1px solid #fafafa' }}><p>No.</p></td>
                                     <td style={{ border: '1px solid #fafafa' }}></td>
-                                    <td style={{ border: '1px solid #fafafa' }}><p>First name</p></td>
-                                    <td style={{ border: '1px solid #fafafa' }}><p>Last name</p></td>
+                                    <td style={{ border: '1px solid #fafafa',textAlign:'left',paddingLeft:20 }}><p>First name</p></td>
+                                    <td style={{ border: '1px solid #fafafa',textAlign:'left',paddingLeft:20 }}><p>Last name</p></td>
                                     <td style={{ border: '1px solid #fafafa' }}><p>Gender</p></td>
                                     <td style={{ border: '1px solid #fafafa' }}><p>Score</p></td>
                                 </tr>
@@ -295,8 +288,8 @@ export default function Form({ navigation }) {
                                     <tr style={{ backgroundColor: (row.id % 2 === 0) ? null : 'white' }}>
                                         <td style={{ border: '1px solid #fafafa', }}><p>{row.id}</p></td>
                                         <td style={{ border: '1px solid #fafafa', cursor: 'pointer' }} onClick={() => Edit_Data(row, rowIdx)}><img src={Edit_icons} style={{ width: 20, height: 20, }} /></td>
-                                        <td style={{ border: '1px solid #fafafa' }}><p>{row.firstname}</p></td>
-                                        <td style={{ border: '1px solid #fafafa' }}><p>{row.lastname}</p></td>
+                                        <td style={{ border: '1px solid #fafafa',textAlign:'left',paddingLeft:20 }}><p>{row.firstname}</p></td>
+                                        <td style={{ border: '1px solid #fafafa',textAlign:'left',paddingLeft:20 }}><p>{row.lastname}</p></td>
                                         <td style={{ border: '1px solid #fafafa' }} title={(row.gender == 'M') ? 'Male' : (row.gender == 'F') ? 'Female' : 'Unknown'}><p>{row.gender}</p></td>
                                         <td style={{ border: '1px solid #fafafa' }}><p>{row.score}</p></td>
                                     </tr>
